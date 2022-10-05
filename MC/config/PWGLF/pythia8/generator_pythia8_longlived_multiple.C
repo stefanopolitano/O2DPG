@@ -119,7 +119,7 @@ FairGenerator* generateLongLivedMultiple(std::vector<int> PDGs, std::vector<int>
 FairGenerator* generateLongLivedMultiple(std::vector<GeneratorPythia8LongLivedGunMultiple::ConfigContainer> cfg)
 {
   if (cfg.size() == 1) {
-    return new GeneratorPythia8LongLivedGun(cfg[0].pdg, cfg[0].nInject, cfg[0].ptMin, cfg[0].ptMax);
+    return new GeneratorPythia8LongLivedGun(cfg[0].pdg, cfg[0].nInject, cfg[0].ptMin, cfg[0].ptMax, cgf[0].etaMin, cfg[0].etaMax);
   }
   GeneratorPythia8LongLivedGunMultiple* multiGun = new GeneratorPythia8LongLivedGunMultiple();
   for (const auto& c : cfg) {

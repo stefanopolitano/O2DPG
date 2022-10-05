@@ -14,7 +14,7 @@ class GeneratorPythia8LongLivedGun : public o2::eventgen::GeneratorPythia8
 {
 public:
   /// constructor
-  GeneratorPythia8LongLivedGun(int input_pdg, int nInject = 1, float ptMin = 1, float ptMax = 10, int input_pdg2 = -1) : pdg{input_pdg}, nParticles{nInject}, genMinPt{ptMin}, genMaxPt{ptMax}, m{getMass(input_pdg)}, pdg2{input_pdg2}
+  GeneratorPythia8LongLivedGun(int input_pdg, int nInject = 1, float ptMin = 1, float ptMax = 10, float etaMin = -1, float etaMax = 1, int input_pdg2 = -1) : pdg{input_pdg}, nParticles{nInject}, genMinPt{ptMin}, genMaxPt{ptMax}, genMinEta{etaMin}, genMaxEta{etaMax}, m{getMass(input_pdg)}, pdg2{input_pdg2}
   {
   }
 
@@ -93,7 +93,7 @@ private:
 };
 
 ///___________________________________________________________
-FairGenerator *generateLongLived(int pdg, int nInject, float ptMin = 1, float ptMax = 10, int pdg2 = -1)
+FairGenerator *generateLongLived(int pdg, int nInject, float ptMin = 1, float ptMax = 10, float etaMin = -1, float etaMax = 1, int pdg2 = -1)
 {
-  return new GeneratorPythia8LongLivedGun(pdg, nInject, ptMin, ptMax, pdg2);
+  return new GeneratorPythia8LongLivedGun(pdg, nInject, ptMin, ptMax, etaMin, etaMax, pdg2);
 }
